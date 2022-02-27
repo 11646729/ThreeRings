@@ -1,5 +1,4 @@
 import axios from "axios"
-// const { REACT_APP_THREE_RINGS_API_KEY } = process.env
 
 // -------------------------------------------------------
 // Function to concatenate 3Rings Shift data volunteer names into a string
@@ -47,15 +46,12 @@ export var getThreeRingsModifiedShiftsData = async (url) => {
     return
   }
 
-  // const apiKey = process.env.REACT_APP_THREE_RINGS_API_KEY
-
   let resultData = await axios({
     url: "https://www.3r.org.uk/stats/export_rotas.json",
     method: "GET",
     timeout: 8000,
     headers: {
-      // Authorization: apiKey,
-      Authorization: "APIKEY mXdvaUQjLxAeO9ixqSuMyQtt",
+      Authorization: process.env.REACT_APP_THREE_RINGS_API_KEY,
     },
   })
 
@@ -85,7 +81,7 @@ export var getThreeRingsNewsData = async (url) => {
     timeout: 8000,
     headers: {
       // "Content-Type": "application/json",
-      Authorization: "APIKEY mXdvaUQjLxAeO9ixqSuMyQtt",
+      Authorization: process.env.REACT_APP_THREE_RINGS_API_KEY,
     },
   })
 
@@ -103,8 +99,6 @@ export var getThreeRingsEventsData = async (url) => {
     )
     return
   }
-
-  console.log("apiKey " + process.env.REACT_APP_THREE_RINGS_API_KEY)
 
   try {
     let resultData = await axios({
