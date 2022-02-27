@@ -1,4 +1,5 @@
 import axios from "axios"
+// const { REACT_APP_THREE_RINGS_API_KEY } = process.env
 
 // -------------------------------------------------------
 // Function to concatenate 3Rings Shift data volunteer names into a string
@@ -41,18 +42,20 @@ export var getThreeRingsModifiedShiftsData = async (url) => {
   // Guard clause
   if (url == null) {
     console.log(
-      "Error: url == null in getThreeRingsShiftsData in axiosUtilities.js"
+      "Error: url == null in getThreeRingsShiftsData in threeRingsUtilities.js"
     )
     return
   }
 
-  //  Fetch data from Three Rings
+  // const apiKey = process.env.REACT_APP_THREE_RINGS_API_KEY
+
   let resultData = await axios({
-    url: url,
+    url: "https://www.3r.org.uk/stats/export_rotas.json",
     method: "GET",
     timeout: 8000,
     headers: {
-      "Content-Type": "application/json",
+      // Authorization: apiKey,
+      Authorization: "APIKEY mXdvaUQjLxAeO9ixqSuMyQtt",
     },
   })
 
@@ -71,17 +74,18 @@ export var getThreeRingsNewsData = async (url) => {
   // Guard clause
   if (url == null) {
     console.log(
-      "Error: url == null in getThreeRingsNewsData in axiosUtilities.js"
+      "Error: url == null in getThreeRingsNewsData in threeRingsUtilities.js"
     )
     return
   }
 
   let resultData = await axios({
-    url: url,
+    url: "https://www.3r.org.uk/news.json",
     method: "GET",
     timeout: 8000,
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
+      Authorization: "APIKEY mXdvaUQjLxAeO9ixqSuMyQtt",
     },
   })
 
@@ -95,21 +99,29 @@ export var getThreeRingsEventsData = async (url) => {
   // Guard clause
   if (url == null) {
     console.log(
-      "Error: url == null in getThreeRingsEventsData in axiosUtilities.js"
+      "Error: url == null in getThreeRingsEventsData in threeRingsUtilities.js"
     )
     return
   }
 
-  let resultData = await axios({
-    url: url,
-    method: "GET",
-    timeout: 8000,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+  console.log("apiKey " + process.env.REACT_APP_THREE_RINGS_API_KEY)
 
-  return resultData.data
+  try {
+    let resultData = await axios({
+      url: url,
+      method: "GET",
+      timeout: 8000,
+      headers: {
+        Authorization: process.env.REACT_APP_THREE_RINGS_API_KEY,
+      },
+    })
+
+    console.log(resultData.data)
+
+    return resultData.data
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export { getThreeRingsModifiedShiftsData as default }

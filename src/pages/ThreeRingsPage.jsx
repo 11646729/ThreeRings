@@ -1,4 +1,5 @@
 import React, { useState, useEffect, memo } from "react"
+
 import {
   getThreeRingsModifiedShiftsData,
   getThreeRingsNewsData,
@@ -43,21 +44,21 @@ const ThreeRingsPage = () => {
   const [loadingError, setLoadingError] = useState("")
 
   const getModifiedShiftsData = () => {
-    getThreeRingsModifiedShiftsData(
-      "http://localhost:4000/api/threerings/shifts"
-    )
+    getThreeRingsModifiedShiftsData("http://www.3r.org.uk/threerings/shifts")
       .then((returnedData) => setModifiedShiftsData(returnedData.shifts))
       .catch((err) => setLoadingError(err))
   }
 
   const getNewsData = () => {
-    getThreeRingsNewsData("http://localhost:4000/api/threerings/news")
+    getThreeRingsNewsData("http://www.3r.org.uk/api/threerings/news")
       .then((returnedData) => setNewsData(returnedData.news_items))
       .catch((err) => setLoadingError(err))
   }
 
   const getEventsData = () => {
-    getThreeRingsEventsData("http://localhost:4000/api/threerings/events")
+    // "https://api.github.com/users/hacktivist123"
+
+    getThreeRingsEventsData("https://www.3r.org.uk/events.json")
       .then((returnedData) => setEventsData(returnedData.events))
       .catch((err) => setLoadingError(err))
   }
@@ -67,16 +68,16 @@ const ThreeRingsPage = () => {
 
   useEffect(() => {
     // This is to fire these function immediately - then the interval timer takes over
-    getModifiedShiftsData()
-    getNewsData()
+    // getModifiedShiftsData()
+    // getNewsData()
     getEventsData()
 
-    var shiftsInterval = setInterval(
-      getModifiedShiftsData,
-      refreshIntervalInMinutes * 1000 * 60
-    )
+    // var shiftsInterval = setInterval(
+    //   getModifiedShiftsData,
+    //   refreshIntervalInMinutes * 1000 * 60
+    // )
 
-    var newsInterval = setInterval(getNewsData, newsRotateSpeedInSeconds * 1000)
+    // var newsInterval = setInterval(getNewsData, newsRotateSpeedInSeconds * 1000)
 
     var eventsInterval = setInterval(
       getEventsData,
@@ -84,8 +85,8 @@ const ThreeRingsPage = () => {
     )
 
     return () => {
-      clearInterval(shiftsInterval)
-      clearInterval(newsInterval)
+      // clearInterval(shiftsInterval)
+      // clearInterval(newsInterval)
       clearInterval(eventsInterval)
     }
   }, [])
@@ -107,7 +108,7 @@ const ThreeRingsPage = () => {
         {/* <ThreeRingsNewsList newsData={newsData}></ThreeRingsNewsList> */}
       </IIIRNewsContainer>
       <IIIREventsContainer>
-        {/* <ThreeRingsEventsList eventsData={eventsData}></ThreeRingsEventsList> */}
+        <ThreeRingsEventsList eventsData={eventsData}></ThreeRingsEventsList>
       </IIIREventsContainer>
     </IIIRContainer>
   )
