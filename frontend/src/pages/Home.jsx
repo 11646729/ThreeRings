@@ -1,12 +1,18 @@
 import React from "react"
+import { Link } from "react-router-dom"
 // import Navbar from "../components/Navbar"
-import ThreeRingsPage from "./ThreeRingsPage"
+// import ThreeRingsPage from "./ThreeRingsPage"
 
 const Home = () => {
   return (
     <div>
       {/* <Navbar /> */}
-      <ThreeRingsPage />
+      <h1>Project Home</h1>
+      {/** Link to List.js */}
+      <Link to={"./list"}>
+        <button>My List</button>
+      </Link>
+      {/* <ThreeRingsPage /> */}
     </div>
   )
 }
