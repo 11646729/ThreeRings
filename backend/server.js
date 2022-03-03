@@ -1,25 +1,23 @@
-import express from "express" //Line 1
+import express from "express"
+import cors from "cors"
+
+// Routers use Controllers as per Express Tutorial
+import threeRingsRouter from "./threeRingsRouteCatalog.js"
 
 const app = express()
 
-const port = process.env.PORT || 8000 //Line 3
+const port = process.env.PORT || 8000
 
-// middleware for allowing react to fetch() from server
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  )
-  res.header("Access-Control-Allow-Methods", "PUT, POST, GET, OPTIONS")
-  next()
-})
+// cors settings from https://blog.jscrambler.com/setting-up-5-useful-middlewares-for-an-express-api/
+app.use(
+  cors({
+    origin: ["http://localhost:" + port],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+)
 
-// An api endpoint that returns a short list of items
-app.get("/backend/getList", (req, res) => {
-  const list = ["item1", "item2", "item3"]
-  res.json(list)
-  console.log("sent list of items")
-})
+// Routes - An api endpoint that returns a short list of items
+app.use("/backend", threeRingsRouter)
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
