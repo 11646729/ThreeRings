@@ -2,7 +2,7 @@ import React from "react"
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import List from "./pages/List"
-import ThreeRingsPage from "./pages/ThreeRingsPage"
+// import ThreeRingsPage from "./pages/ThreeRingsPage"
 
 const App = () => {
   return (

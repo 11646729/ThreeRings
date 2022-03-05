@@ -1,10 +1,12 @@
 import express from "express"
 import cors from "cors"
+import dotenv from "dotenv"
 
-// Routers use Controllers as per Express Tutorial
 import threeRingsRouter from "./threeRingsRouteCatalog.js"
 
 const app = express()
+
+dotenv.config()
 
 const port = process.env.PORT || 8000
 
