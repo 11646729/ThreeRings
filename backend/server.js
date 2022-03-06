@@ -10,6 +10,8 @@ dotenv.config()
 
 const port = process.env.PORT || 8000
 
+// app.use(cors())
+
 // cors settings from https://blog.jscrambler.com/setting-up-5-useful-middlewares-for-an-express-api/
 app.use(
   cors({
@@ -22,4 +24,5 @@ app.use(
 // Routes - An api endpoint that returns a short list of items
 app.use("/backend", threeRingsRouter)
 
+// Start Express server
 app.listen(port, () => console.log(`Listening on port ${port}`))

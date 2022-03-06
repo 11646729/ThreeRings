@@ -2,13 +2,13 @@ import React, { useState, useEffect, memo } from "react"
 
 import {
   getThreeRingsModifiedShiftsData,
-  // getThreeRingsNewsData,
-  // getThreeRingsEventsData,
+  getThreeRingsNewsData,
+  getThreeRingsEventsData,
 } from "../threeRingsUtilities"
 
-// import ThreeRingsShiftsList from "../components/ThreeRingsShiftsList"
-// import ThreeRingsNewsList from "../components/ThreeRingsNewsList"
-// import ThreeRingsEventsList from "../components/ThreeRingsEventsList"
+import ThreeRingsShiftsList from "../components/ThreeRingsShiftsList"
+import ThreeRingsNewsList from "../components/ThreeRingsNewsList"
+import ThreeRingsEventsList from "../components/ThreeRingsEventsList"
 
 import styled from "styled-components"
 
@@ -38,57 +38,54 @@ const IIIREventsContainer = styled.div`
 `
 
 const ThreeRingsPage = () => {
-  // const [shiftsData, setModifiedShiftsData] = useState([])
-  // const [newsData, setNewsData] = useState([])
-  // const [eventsData, setEventsData] = useState([])
+  const [shiftsData, setModifiedShiftsData] = useState([])
+  const [newsData, setNewsData] = useState([])
+  const [eventsData, setEventsData] = useState([])
   const [loadingError, setLoadingError] = useState("")
 
   const getModifiedShiftsData = () => {
     getThreeRingsModifiedShiftsData("http://localhost:8000/backend/shifts")
-      // .then((returnedData) => setModifiedShiftsData(returnedData.shifts))
-      .then((returnedData) => {
-        console.log(returnedData)
-      })
+      .then((returnedData) => setModifiedShiftsData(returnedData.shifts))
       .catch((err) => setLoadingError(err))
   }
 
-  // const getNewsData = () => {
-  //   getThreeRingsNewsData("http://www.3r.org.uk/api/threerings/news")
-  //     .then((returnedData) => setNewsData(returnedData.news_items))
-  //     .catch((err) => setLoadingError(err))
-  // }
+  const getNewsData = () => {
+    getThreeRingsNewsData("http://localhost:8000/backend/news")
+      .then((returnedData) => setNewsData(returnedData.news_items))
+      .catch((err) => setLoadingError(err))
+  }
 
-  // const getEventsData = () => {
-  //   getThreeRingsEventsData("https://www.3r.org.uk/events.json")
-  //     .then((returnedData) => setEventsData(returnedData.events))
-  //     .catch((err) => setLoadingError(err))
-  // }
+  const getEventsData = () => {
+    getThreeRingsEventsData("http://localhost:8000/backend/events")
+      .then((returnedData) => setEventsData(returnedData.events))
+      .catch((err) => setLoadingError(err))
+  }
 
-  // const newsRotateSpeedInSeconds = 4
-  // const refreshIntervalInMinutes = 1
+  const newsRotateSpeedInSeconds = 4
+  const refreshIntervalInMinutes = 1
 
   useEffect(() => {
     // This is to fire these function immediately - then the interval timer takes over
     getModifiedShiftsData()
-    // getNewsData()
-    // getEventsData()
+    getNewsData()
+    getEventsData()
 
-    // var shiftsInterval = setInterval(
-    //   getModifiedShiftsData,
-    //   refreshIntervalInMinutes * 1000 * 60
-    // )
+    var shiftsInterval = setInterval(
+      getModifiedShiftsData,
+      refreshIntervalInMinutes * 1000 * 60
+    )
 
-    // var newsInterval = setInterval(getNewsData, newsRotateSpeedInSeconds * 1000)
+    var newsInterval = setInterval(getNewsData, newsRotateSpeedInSeconds * 1000)
 
-    // var eventsInterval = setInterval(
-    //   getEventsData,
-    //   refreshIntervalInMinutes * 1000 * 60
-    // )
+    var eventsInterval = setInterval(
+      getEventsData,
+      refreshIntervalInMinutes * 1000 * 60
+    )
 
     return () => {
-      // clearInterval(shiftsInterval)
-      // clearInterval(newsInterval)
-      // clearInterval(eventsInterval)
+      clearInterval(shiftsInterval)
+      clearInterval(newsInterval)
+      clearInterval(eventsInterval)
     }
   }, [])
 
@@ -96,20 +93,20 @@ const ThreeRingsPage = () => {
     alert(loadingError)
   }
 
-  // console.log(shiftsData)
-  // console.log(newsData)
-  // console.log(eventsData)
+  console.log(shiftsData)
+  console.log(newsData)
+  console.log(eventsData)
 
   return (
     <IIIRContainer>
       <IIIRShiftContainer>
-        {/* <ThreeRingsShiftsList shiftsData={shiftsData}></ThreeRingsShiftsList> */}
+        <ThreeRingsShiftsList shiftsData={shiftsData}></ThreeRingsShiftsList>
       </IIIRShiftContainer>
       <IIIRNewsContainer>
-        {/* <ThreeRingsNewsList newsData={newsData}></ThreeRingsNewsList> */}
+        <ThreeRingsNewsList newsData={newsData}></ThreeRingsNewsList>
       </IIIRNewsContainer>
       <IIIREventsContainer>
-        {/* <ThreeRingsEventsList eventsData={eventsData}></ThreeRingsEventsList> */}
+        <ThreeRingsEventsList eventsData={eventsData}></ThreeRingsEventsList>
       </IIIREventsContainer>
     </IIIRContainer>
   )

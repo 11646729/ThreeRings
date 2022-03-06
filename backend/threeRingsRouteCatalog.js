@@ -24,15 +24,7 @@ threeRingsRouter.get("/", () => {
 // -------------------------------------------------------
 // Function to fetch all 3Rings Shift data
 // -------------------------------------------------------
-threeRingsRouter.get("/shifts", async (url) => {
-  // Guard clause
-  if (url == null) {
-    console.log(
-      "Error: url == null in get /shifts in threeRingsRouteCatalog.js"
-    )
-    return
-  }
-
+threeRingsRouter.get("/shifts", async (req, res) => {
   try {
     let resultData = await axios({
       url: "https://www.3r.org.uk/stats/export_rotas.json",
@@ -43,7 +35,47 @@ threeRingsRouter.get("/shifts", async (url) => {
       },
     })
 
-    return resultData.data
+    res.send(resultData.data)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+// -------------------------------------------------------
+// Function to fetch all 3Rings News data
+// -------------------------------------------------------
+threeRingsRouter.get("/news", async (req, res) => {
+  try {
+    let resultData = await axios({
+      url: "http://www.3r.org.uk/news.json",
+      method: "GET",
+      timeout: 8000,
+      headers: {
+        Authorization: process.env.REACT_APP_THREE_RINGS_API_KEY,
+      },
+    })
+
+    res.send(resultData.data)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+// -------------------------------------------------------
+// Function to fetch all 3Rings Events data
+// -------------------------------------------------------
+threeRingsRouter.get("/events", async (req, res) => {
+  try {
+    let resultData = await axios({
+      url: "https://www.3r.org.uk/events.json",
+      method: "GET",
+      timeout: 8000,
+      headers: {
+        Authorization: process.env.REACT_APP_THREE_RINGS_API_KEY,
+      },
+    })
+
+    res.send(resultData.data)
   } catch (error) {
     console.log(error)
   }
