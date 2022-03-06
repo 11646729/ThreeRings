@@ -93,10 +93,6 @@ const ThreeRingsPage = () => {
     alert(loadingError)
   }
 
-  console.log(shiftsData)
-  console.log(newsData)
-  console.log(eventsData)
-
   return (
     <IIIRContainer>
       <IIIRShiftContainer>
