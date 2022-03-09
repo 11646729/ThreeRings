@@ -6,6 +6,7 @@ import {
   getThreeRingsEventsData,
 } from "../threeRingsUtilities"
 
+import TopBar from "../components/TopBar"
 import ThreeRingsShiftsList from "../components/ThreeRingsShiftsList"
 import ThreeRingsNewsList from "../components/ThreeRingsNewsList"
 import ThreeRingsEventsList from "../components/ThreeRingsEventsList"
@@ -94,17 +95,20 @@ const ThreeRingsPage = () => {
   }
 
   return (
-    <IIIRContainer>
-      <IIIRShiftContainer>
-        <ThreeRingsShiftsList shiftsData={shiftsData}></ThreeRingsShiftsList>
-      </IIIRShiftContainer>
-      <IIIRNewsContainer>
-        <ThreeRingsNewsList newsData={newsData}></ThreeRingsNewsList>
-      </IIIRNewsContainer>
-      <IIIREventsContainer>
-        <ThreeRingsEventsList eventsData={eventsData}></ThreeRingsEventsList>
-      </IIIREventsContainer>
-    </IIIRContainer>
+    <div>
+      <TopBar />
+      <IIIRContainer>
+        <IIIRShiftContainer>
+          <ThreeRingsShiftsList shiftsData={shiftsData}></ThreeRingsShiftsList>
+        </IIIRShiftContainer>
+        <IIIRNewsContainer>
+          <ThreeRingsNewsList newsData={newsData}></ThreeRingsNewsList>
+        </IIIRNewsContainer>
+        <IIIREventsContainer>
+          <ThreeRingsEventsList eventsData={eventsData}></ThreeRingsEventsList>
+        </IIIREventsContainer>
+      </IIIRContainer>
+    </div>
   )
 }
 
