@@ -10,10 +10,9 @@ dotenv.config()
 
 const port = process.env.PORT || 8000
 
-// Needed to avoid cors errors because it doesn't load properly - STILL CHECKING
-var originAddress = "http://localhost:" + port
-
 app.use(cors())
+
+// var originAddress = "http://localhost:" + port
 
 // cors settings from https://blog.jscrambler.com/setting-up-5-useful-middlewares-for-an-express-api/
 // app.use(
