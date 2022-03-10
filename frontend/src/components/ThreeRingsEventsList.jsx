@@ -14,14 +14,11 @@ const EventsTRowContainer = styled.tr``
 const EventsTBodyContainer = styled.tbody``
 
 const EventsHeader = styled.th`
-  // width: 100%;
-  background-color: #f5fcee;
-  // border: 2px solid grey;
-  // border-style: solid;
+  background-color: #115e67;
   padding: 30px;
   font-weight: bold;
   font-size: 30px;
-  color: darkblue;
+  color: white;
   text-align: center;
   justify-content: center;
 `
@@ -30,9 +27,6 @@ const EventsItemContainer = styled.tr``
 
 const EventItem = styled.td`
   background-color: lightgrey;
-  // width: 50%;
-  // border: 20px solid grey;
-  // border-style: solid;
   text-align: center;
   justify-content: center;
 `

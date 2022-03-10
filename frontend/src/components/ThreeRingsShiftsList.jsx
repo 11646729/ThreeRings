@@ -8,7 +8,7 @@ const ShiftsTableContainer = styled.table`
 `
 
 const ShiftsHeaderContainer = styled.thead`
-  background-color: #f5fcee;
+  background-color: #115e67;
   width: 100%;
   justify-content: center;
 `
@@ -28,7 +28,7 @@ const DateToday = styled.th`
   padding: 30px;
   font-weight: bold;
   font-size: 30px;
-  color: darkblue;
+  color: white;
   text-align: center;
 `
 

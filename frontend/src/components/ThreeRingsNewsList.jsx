@@ -6,38 +6,37 @@ const NewsTableContainer = styled.table`
   justify-content: center;
 `
 
-const NewsHeaderContainer = styled.thead`
-  background-color: #f5fcee;
-  width: 100%;
-`
+const NewsTHeadContainer = styled.thead``
 
 const NewsTRowContainer = styled.tr``
 
-const NewsBodyContainer = styled.tbody`
-  background-color: lightgrey;
-  width: 100%;
-`
+const NewsTBodyContainer = styled.tbody``
 
 const NewsHeader = styled.th`
+  background-color: #115e67;
   padding: 30px;
   font-weight: bold;
   font-size: 30px;
-  color: darkblue;
+  color: white;
   text-align: center;
   justify-content: center;
 `
 
 const NewsItemContainer = styled.tr``
 
-const NewsItem = styled.div`
+const NewsItem = styled.td`
   background-color: lightgrey;
-  margin: 10px;
 `
 
 const NewsItemTitle = styled.div`
   margin: 10px;
   font-weight: bold;
   font-size: 20px;
+`
+
+const NewsItemDetails = styled.div`
+  // background-color: lightgrey;
+  margin: 10px;
 `
 
 const NewsItemAuthor = styled.div`
@@ -48,27 +47,27 @@ const NewsItemAuthor = styled.div`
 const ThreeRingsNewsList = (props) => {
   return (
     <NewsTableContainer>
-      <NewsHeaderContainer>
+      <NewsTHeadContainer>
         <NewsTRowContainer>
           <NewsHeader>News</NewsHeader>
         </NewsTRowContainer>
-      </NewsHeaderContainer>
-      <NewsBodyContainer>
+      </NewsTHeadContainer>
+      <NewsTBodyContainer>
         {props.newsData.map((newsItem) => (
           <NewsItemContainer key={newsItem.id}>
-            <td>
+            <NewsItem>
               <NewsItemTitle>{newsItem.title}</NewsItemTitle>
-              <NewsItem>
+              <NewsItemDetails>
                 {/* Next line removes all html tags in newsItem body */}
                 <div dangerouslySetInnerHTML={{ __html: newsItem.body }}></div>
-              </NewsItem>
+              </NewsItemDetails>
               <NewsItemAuthor>
                 Posted by: {newsItem.creator.name}
               </NewsItemAuthor>
-            </td>
+            </NewsItem>
           </NewsItemContainer>
         ))}
-      </NewsBodyContainer>
+      </NewsTBodyContainer>
     </NewsTableContainer>
   )
 }
