@@ -35,7 +35,6 @@ const NewsItemTitle = styled.div`
 `
 
 const NewsItemDetails = styled.div`
-  // background-color: lightgrey;
   margin: 10px;
 `
 

@@ -5,7 +5,7 @@ import { NotificationsNone, Language, Settings } from "@material-ui/icons"
 const Container = styled.div`
   width: 100%;
   height: 50px;
-  background-color: white;
+  background-color: #115e67;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -37,7 +37,7 @@ const TopBarIconContainer = styled.div`
   position: relative;
   cursor: pointer;
   margin-right: 10px;
-  color: #555;
+  // color: #555;
 `
 
 const TopIconBadge = styled.div`

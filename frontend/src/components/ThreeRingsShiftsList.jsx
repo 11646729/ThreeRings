@@ -7,39 +7,34 @@ const ShiftsTableContainer = styled.table`
   justify-content: center;
 `
 
-const ShiftsHeaderContainer = styled.thead`
+const ShiftsTHeadContainer = styled.thead``
+
+const ShiftsTRowContainer = styled.tr``
+
+const ShiftsBodyContainer = styled.tbody``
+
+const ShiftsHeader = styled.th`
   background-color: #115e67;
-  width: 100%;
-  justify-content: center;
-`
-
-const ShiftsDateContainer = styled.tr``
-
-const ShiftsBodyContainer = styled.tbody`
-  flex: 1;
-  background-color: lightgrey;
-  width: 100%;
-  justify-content: center;
-`
-
-const ShiftsPeriodContainer = styled.tr``
-
-const DateToday = styled.th`
   padding: 30px;
   font-weight: bold;
   font-size: 30px;
   color: white;
   text-align: center;
+  justify-content: center;
 `
 
-const ShiftPeriod = styled.td``
+const ShiftsItemContainer = styled.tr``
+
+const ShiftItem = styled.td`
+  background-color: lightgrey;
+`
 
 const ShiftTimes = styled.div`
   margin: 10px;
   font-weight: bold;
 `
 
-const ShiftName = styled.div`
+const ShiftVolunteers = styled.div`
   margin: 10px;
   color: darkblue;
 `
@@ -47,15 +42,16 @@ const ShiftName = styled.div`
 const ThreeRingsShiftsList = (props) => {
   return (
     <ShiftsTableContainer>
-      <ShiftsHeaderContainer>
-        <ShiftsDateContainer>
-          <DateToday>{moment().format("dddd[] Do MMMM YYYY")}</DateToday>
-        </ShiftsDateContainer>
-      </ShiftsHeaderContainer>
+      <ShiftsTHeadContainer>
+        <ShiftsTRowContainer>
+          <ShiftsHeader>{moment().format("dddd[] Do MMMM YYYY")}</ShiftsHeader>
+        </ShiftsTRowContainer>
+      </ShiftsTHeadContainer>
+
       <ShiftsBodyContainer>
         {props.shiftsData.map((shift) => (
-          <ShiftsPeriodContainer key={shift.id}>
-            <ShiftPeriod>
+          <ShiftsItemContainer key={shift.id}>
+            <ShiftItem>
               <ShiftTimes>
                 Shift:
                 {moment(shift.start_datetime).format(" HH:mm ")}
@@ -64,11 +60,11 @@ const ThreeRingsShiftsList = (props) => {
                   .add(shift.duration, "s")
                   .format(" HH:mm")}
               </ShiftTimes>
-              <ShiftName>
+              <ShiftVolunteers>
                 {shift.rota}: {shift.nameString}
-              </ShiftName>
-            </ShiftPeriod>
-          </ShiftsPeriodContainer>
+              </ShiftVolunteers>
+            </ShiftItem>
+          </ShiftsItemContainer>
         ))}
       </ShiftsBodyContainer>
     </ShiftsTableContainer>
