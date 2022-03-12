@@ -1,4 +1,5 @@
 import React, { useState, useEffect, memo } from "react"
+import styled from "styled-components"
 
 import {
   getThreeRingsModifiedShiftsData,
@@ -10,8 +11,6 @@ import TopBar from "../components/TopBar"
 import ThreeRingsShiftsList from "../components/ThreeRingsShiftsList"
 import ThreeRingsNewsList from "../components/ThreeRingsNewsList"
 import ThreeRingsEventsList from "../components/ThreeRingsEventsList"
-
-import styled from "styled-components"
 
 const IIIRContainer = styled.div`
   display: flex;

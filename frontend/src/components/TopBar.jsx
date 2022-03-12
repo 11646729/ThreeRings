@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { NotificationsNone, Language, Settings } from "@material-ui/icons"
+// import { NotificationsNone, Language, Settings } from "@material-ui/icons"
 
 const Container = styled.div`
   width: 100%;
@@ -33,6 +33,10 @@ const TopRight = styled.div`
   align-items: center;
 `
 
+const ITSupportName = styled.div`
+  color: white;
+`
+
 const TopBarIconContainer = styled.div`
   position: relative;
   cursor: pointer;
@@ -40,20 +44,21 @@ const TopBarIconContainer = styled.div`
   // color: #555;
 `
 
-const TopIconBadge = styled.div`
-  height: 15px;
-  width: 15px;
-  position: absolute;
-  top: -5px;
-  right: 0px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-`
+// const TopIconBadge = styled.div`
+//   height: 15px;
+//   width: 15px;
+//   position: absolute;
+//   top: -5px;
+//   right: 0px;
+//   background-color: red;
+//   color: white;
+//   border-radius: 50%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 10px;
+// `
+
 const TopAvatar = styled.img`
   width: 40px;
   height: 40px;
@@ -69,17 +74,18 @@ export default function TopBar() {
         <Logo src="/static/images/Samaritans.png" alt="" />
         {/* </div> */}
         <TopRight>
+          <ITSupportName>
+            IT Support: Brian Smith Tel: 07714 599070
+          </ITSupportName>
           <TopBarIconContainer>
-            <NotificationsNone />
-            <TopIconBadge>1</TopIconBadge>
+            {/* <NotificationsNone /> */}
+            {/* <TopIconBadge>1</TopIconBadge> */}
           </TopBarIconContainer>
           <TopBarIconContainer>
-            <Language />
-            <TopIconBadge>2</TopIconBadge>
+            {/* <Language /> */}
+            {/* <TopIconBadge>2</TopIconBadge> */}
           </TopBarIconContainer>
-          <TopBarIconContainer>
-            <Settings />
-          </TopBarIconContainer>
+          <TopBarIconContainer>{/* <Settings /> */}</TopBarIconContainer>
           <TopAvatar src="/static/images/brian.jpeg" alt="" />
         </TopRight>
       </TopBarWrapper>
