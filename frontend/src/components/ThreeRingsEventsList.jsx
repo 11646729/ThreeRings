@@ -16,7 +16,7 @@ const EventsTBodyContainer = styled.tbody``
 const EventsHeader = styled.th`
   background-color: #115e67;
   padding: 30px;
-  font-weight: bold;
+  font-family: Varah-Bold;
   font-size: 30px;
   color: white;
   text-align: center;

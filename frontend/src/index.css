@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Varah-Bold";
+  src: local("Varah-Bold"), url(./fonts/Varah-Bold.otf) format("opentype");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: "Varah-BoldItalic";
+  src: local("Varah-BoldItalic"),
+    url(./fonts/Varah-BoldItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Varah-Italic";
+  src: local("Varah-Italic"), url(./fonts/Varah-Italic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Varah-Regular";
+  src: local("Varah-Regular"), url(./fonts/Varah-Regular.otf) format("opentype");
+}
