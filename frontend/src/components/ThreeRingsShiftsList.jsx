@@ -27,6 +27,7 @@ const ShiftsItemContainer = styled.tr``
 
 const ShiftItem = styled.td`
   background-color: lightgrey;
+  font-family: Calibri-Regular;
 `
 
 const ShiftTimes = styled.div`

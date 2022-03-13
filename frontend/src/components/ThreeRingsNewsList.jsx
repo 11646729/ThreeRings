@@ -26,6 +26,7 @@ const NewsItemContainer = styled.tr``
 
 const NewsItem = styled.td`
   background-color: lightgrey;
+  font-family: Calibri-Regular;
 `
 
 const NewsItemTitle = styled.div`

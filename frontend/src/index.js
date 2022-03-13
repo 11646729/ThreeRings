@@ -8,6 +8,9 @@ import "./fonts/Varah-Bold.otf"
 import "./fonts/Varah-BoldItalic.otf"
 import "./fonts/Varah-Italic.otf"
 import "./fonts/Varah-Regular.otf"
+import "./fonts/Calibri.ttf"
+import "./fonts/Calibrib.ttf"
+import "./fonts/Calibrii.ttf"
 
 ReactDOM.render(
   <BrowserRouter>

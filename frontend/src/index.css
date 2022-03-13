@@ -20,3 +20,18 @@
   font-family: "Varah-Regular";
   src: local("Varah-Regular"), url(./fonts/Varah-Regular.otf) format("opentype");
 }
+
+@font-face {
+  font-family: "Calibri-Regular";
+  src: local("Calibri-Regular"), url(./fonts/Calibri.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Calibri-Bold";
+  src: local("Calibri-Bold"), url(./fonts/Calibrib.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Calibri-Italic";
+  src: local("Calibri-Italic"), url(./fonts/Calibrii.ttf) format("truetype");
+}

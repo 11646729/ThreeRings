@@ -34,6 +34,7 @@ const TopRight = styled.div`
 `
 
 const ITSupportName = styled.div`
+  font-family: Calibri-Regular;
   color: white;
 `
 

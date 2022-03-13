@@ -27,6 +27,7 @@ const EventsItemContainer = styled.tr``
 
 const EventItem = styled.td`
   background-color: lightgrey;
+  font-family: Calibri-Regular;
   text-align: center;
   justify-content: center;
 `
