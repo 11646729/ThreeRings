@@ -44,7 +44,7 @@ const NewsItemAuthor = styled.div`
   color: darkblue;
 `
 
-const ThreeRingsNewsList = (props) => {
+const ThreeRingsNewsTable = (props) => {
   return (
     <NewsTableContainer>
       <NewsTHeadContainer>
@@ -72,4 +72,4 @@ const ThreeRingsNewsList = (props) => {
   )
 }
 
-export default memo(ThreeRingsNewsList)
+export default memo(ThreeRingsNewsTable)

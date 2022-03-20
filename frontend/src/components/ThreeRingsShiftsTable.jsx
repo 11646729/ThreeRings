@@ -11,6 +11,8 @@ const ShiftsTHeadContainer = styled.thead``
 
 const ShiftsTRowContainer = styled.tr``
 
+const ShiftsBodyContainer = styled.tbody``
+
 const ShiftsHeader = styled.th`
   background-color: #115e67;
   padding: 30px;
@@ -21,16 +23,11 @@ const ShiftsHeader = styled.th`
   justify-content: center;
 `
 
-const ShiftsItemList = styled.ul`
-  list-style: none;
-  // width: 100%;
-  padding: 10px 30px;
-`
+const ShiftsItemContainer = styled.tr``
 
-const ShiftItem = styled.li`
+const ShiftItem = styled.td`
   background-color: lightgrey;
   font-family: Calibri-Regular;
-  padding: 10px 30px;
 `
 
 const ShiftTimes = styled.div`
@@ -43,7 +40,7 @@ const ShiftVolunteers = styled.div`
   color: darkblue;
 `
 
-const ThreeRingsShiftsList = (props) => {
+const ThreeRingsShiftsTable = (props) => {
   return (
     <ShiftsTableContainer>
       <ShiftsTHeadContainer>
@@ -52,25 +49,27 @@ const ThreeRingsShiftsList = (props) => {
         </ShiftsTRowContainer>
       </ShiftsTHeadContainer>
 
-      <ShiftsItemList>
+      <ShiftsBodyContainer>
         {props.shiftsData.map((shift) => (
-          <ShiftItem key={shift.id}>
-            <ShiftTimes>
-              Shift:
-              {moment(shift.start_datetime).format(" HH:mm ")}
-              to
-              {moment(shift.start_datetime)
-                .add(shift.duration, "s")
-                .format(" HH:mm")}
-            </ShiftTimes>
-            <ShiftVolunteers>
-              {shift.rota}: {shift.nameString}
-            </ShiftVolunteers>
-          </ShiftItem>
+          <ShiftsItemContainer key={shift.id}>
+            <ShiftItem>
+              <ShiftTimes>
+                Shift:
+                {moment(shift.start_datetime).format(" HH:mm ")}
+                to
+                {moment(shift.start_datetime)
+                  .add(shift.duration, "s")
+                  .format(" HH:mm")}
+              </ShiftTimes>
+              <ShiftVolunteers>
+                {shift.rota}: {shift.nameString}
+              </ShiftVolunteers>
+            </ShiftItem>
+          </ShiftsItemContainer>
         ))}
-      </ShiftsItemList>
+      </ShiftsBodyContainer>
     </ShiftsTableContainer>
   )
 }
 
-export default memo(ThreeRingsShiftsList)
+export default memo(ThreeRingsShiftsTable)

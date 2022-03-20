@@ -52,7 +52,7 @@ const EventItemAuthor = styled.div`
   color: darkblue;
 `
 
-const ThreeRingsEventsList = (props) => {
+const ThreeRingsEventsTable = (props) => {
   return (
     <EventsTableContainer>
       <EventsTHeadContainer>
@@ -82,4 +82,4 @@ const ThreeRingsEventsList = (props) => {
   )
 }
 
-export default memo(ThreeRingsEventsList)
+export default memo(ThreeRingsEventsTable)
