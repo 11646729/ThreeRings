@@ -23,34 +23,36 @@ const ShiftsHeader = styled.th`
 
 const ShiftsItemList = styled.ul`
   list-style: none;
-  // width: 100%;
-  padding: 10px 30px;
+  width: 100%;
+  padding: 0px 0px;
 `
 
 const ShiftItem = styled.li`
   background-color: lightgrey;
   font-family: Calibri-Regular;
-  padding: 10px 30px;
+  // padding: 5px 0px;
 `
 
 const ShiftTimes = styled.div`
   margin: 10px;
   font-weight: bold;
+  padding-top: 10px;
 `
 
 const ShiftVolunteers = styled.div`
   margin: 10px;
   color: darkblue;
+  padding-bottom: 10px;
 `
 
 const ThreeRingsShiftsList = (props) => {
   return (
     <ShiftsTableContainer>
-      <ShiftsTHeadContainer>
+      {/* <ShiftsTHeadContainer>
         <ShiftsTRowContainer>
           <ShiftsHeader>{moment().format("dddd[] Do MMMM YYYY")}</ShiftsHeader>
         </ShiftsTRowContainer>
-      </ShiftsTHeadContainer>
+      </ShiftsTHeadContainer> */}
 
       <ShiftsItemList>
         {props.shiftsData.map((shift) => (
