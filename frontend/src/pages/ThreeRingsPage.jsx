@@ -9,9 +9,8 @@ import {
 
 import TopBar from "../components/TopBar"
 import ThreeRingsShiftsList from "../components/ThreeRingsShiftsList"
-// import ThreeRingsShiftsTable from "../components/ThreeRingsShiftsTable"
-import ThreeRingsNewsTable from "../components/ThreeRingsNewsTable"
-import ThreeRingsEventsTable from "../components/ThreeRingsEventsTable"
+import ThreeRingsNewsList from "../components/ThreeRingsNewsList"
+import ThreeRingsEventsList from "../components/ThreeRingsEventsList"
 
 const IIIRContainer = styled.div`
   display: flex;
@@ -100,17 +99,12 @@ const ThreeRingsPage = () => {
       <IIIRContainer>
         <IIIRShiftContainer>
           <ThreeRingsShiftsList shiftsData={shiftsData}></ThreeRingsShiftsList>
-          {/* <ThreeRingsShiftsTable
-            shiftsData={shiftsData}
-          ></ThreeRingsShiftsTable> */}
         </IIIRShiftContainer>
         <IIIRNewsContainer>
-          <ThreeRingsNewsTable newsData={newsData}></ThreeRingsNewsTable>
+          <ThreeRingsNewsList newsData={newsData}></ThreeRingsNewsList>
         </IIIRNewsContainer>
         <IIIREventsContainer>
-          <ThreeRingsEventsTable
-            eventsData={eventsData}
-          ></ThreeRingsEventsTable>
+          <ThreeRingsEventsList eventsData={eventsData}></ThreeRingsEventsList>
         </IIIREventsContainer>
       </IIIRContainer>
     </div>
